@@ -15,6 +15,7 @@ RandomTicker::RandomTicker(int minTicks, int maxTicks, int minDelay, int maxDela
   _minDelay = minDelay;
   _maxDelay = maxDelay;
   _callback = callback;
+  _even = true;
 }
 
 void RandomTicker::run(){
@@ -22,5 +23,14 @@ void RandomTicker::run(){
   for (int i = 0; i < randomTicks; i++){
     delay(random(_minDelay, _maxDelay));
     _callback();
+    _even = !_even;
   }
+}
+
+bool RandomTicker::isEvenTick(){
+  return _even;
+}
+
+bool RandomTicker::isOddTick(){
+  return !_even;
 }

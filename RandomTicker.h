@@ -12,12 +12,15 @@ class RandomTicker
     RandomTicker();
     RandomTicker(int minTicks, int maxTicks, int minDelay, int maxDelay, void (*callback));
     void run();
+    bool isEvenTick();
+    bool isOddTick();
   private:
     int _minTicks;
     int _maxTicks;
     int _minDelay;
     int _maxDelay;
-    void (*_callback) ();  
+    void (*_callback) (); 
+    bool _even; 
 };
 
 #endif
