@@ -6,20 +6,25 @@
 #define RandomTicker_h
 
 #include "Arduino.h"
+
+typedef void (*Callback)();
+
 class RandomTicker
 {
   public:
     RandomTicker();
-    RandomTicker(int minTicks, int maxTicks, int minDelay, int maxDelay, void (*callback));
+    RandomTicker(int minTicks, int maxTicks, int minDelay, int maxDelay, Callback callback );
     void run();
     bool isEvenTick();
     bool isOddTick();
+  protected:
+    void (*_callback) ();
   private:
     int _minTicks;
     int _maxTicks;
     int _minDelay;
     int _maxDelay;
-    void (*_callback) (); 
+    // void (*_callback) (); 
     bool _even; 
 };
 

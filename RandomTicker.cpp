@@ -1,15 +1,10 @@
-/*
-  RandomTicker.h - Library for randomly flashing led on random intervals.
-  Created by Jeanna Terrell February 3, 2022.
-*/
-
-#include "Arduino.h"
+#include "Arduino.h"[]
 #include "RandomTicker.h"
 
 RandomTicker::RandomTicker() {
 }
 
-RandomTicker::RandomTicker(int minTicks, int maxTicks, int minDelay, int maxDelay, void(*callback)) {
+RandomTicker::RandomTicker(int minTicks, int maxTicks, int minDelay, int maxDelay, Callback callback) {
   _minTicks = minTicks;
   _maxTicks = maxTicks;
   _minDelay = minDelay;
