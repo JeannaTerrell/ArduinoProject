@@ -30,3 +30,31 @@ void callback()
 }
 ```
 
+## Even and Odd
+The `isEvenTick()` and `isOddTick()` functions return whether or not the tick is even or odd.
+The first tick is considered even and the second tick is considered odd and so forth.
+
+### Blinking an LED
+```
+#include <RandomTicker.h>
+
+RandomTicker ticker;
+int minTicks = 2, maxTicks = 2, minDelay = 1000, maxDelay = 1000;
+
+void Setup()
+{
+    pinMode(LED_BUILTIN, OUTPUT);
+    ticker = RandomTicker(int minTicks, int maxTicks, int minDelay, int maxDelay, callback);
+}
+
+void loop()
+{
+    ticker.run();
+}
+
+void callback()
+{
+    digitalWrite(LED_BUILTIN, ticker.isEvenTick());
+}
+```
+
